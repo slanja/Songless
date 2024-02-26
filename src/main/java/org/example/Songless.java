@@ -80,13 +80,13 @@ public class Songless extends JFrame {
                         songLabel.setText(file.getName());
                     }
 
-                    if (source.equals(button05s)) MusicPlayer.Play05s(clip);
-                    if (source.equals(button1s)) MusicPlayer.Play1s(clip);
-                    if (source.equals(button2s)) MusicPlayer.Play2s(clip);
-                    if (source.equals(button4s)) MusicPlayer.Play4s(clip);
-                    if (source.equals(button8s)) MusicPlayer.Play8s(clip);
-                    if (source.equals(button15s)) MusicPlayer.Play15s(clip);
-                    if (source.equals(button30s)) MusicPlayer.Play30s(clip);
+                    if (source.equals(button05s)) MusicPlayer.Play(clip, 500);
+                    if (source.equals(button1s)) MusicPlayer.Play(clip, 1000);
+                    if (source.equals(button2s)) MusicPlayer.Play(clip, 2000);
+                    if (source.equals(button4s)) MusicPlayer.Play(clip, 4000);
+                    if (source.equals(button8s)) MusicPlayer.Play(clip, 8000);
+                    if (source.equals(button15s)) MusicPlayer.Play(clip, 15000);
+                    if (source.equals(button30s)) MusicPlayer.Play(clip, 30000);
                 }
                 catch(InterruptedException e){
                     throw new RuntimeException(e);

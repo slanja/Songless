@@ -16,52 +16,11 @@ public class MusicPlayer {
         songLabel.setText(file.getName());
     }
 
-    public static void Play05s(Clip clip) throws InterruptedException {
+    public static void Play(Clip clip, long time) throws InterruptedException {
         clip.setMicrosecondPosition(0);
         clip.start();
-        Thread.sleep(500);
+        Thread.sleep(time);
         clip.stop();
     }
 
-    public static void Play1s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(1000);
-        clip.stop();
-    }
-
-    public static void Play2s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(2000);
-        clip.stop();
-    }
-
-    public static void Play4s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(4000);
-        clip.stop();
-    }
-
-    public static void Play8s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(8000);
-        clip.stop();
-    }
-
-    public static void Play15s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(15000);
-        clip.stop();
-    }
-
-    public static void Play30s(Clip clip) throws InterruptedException {
-        clip.setMicrosecondPosition(0);
-        clip.start();
-        Thread.sleep(30000);
-        clip.stop();
-    }
 }

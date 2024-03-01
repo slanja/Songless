@@ -6,20 +6,28 @@ import java.io.File;
 import java.io.IOException;
 
 public class MusicPlayer {
-    public static void LoadSong(File[] files, int index, JLabel songLabel) throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        File file = new File("songs/", files[index].getName());
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+    private static Clip clip;
 
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
+    public static void LoadAudio(String filePath) {
+        File audioFile = new File(filePath);
 
-        songLabel.setText(file.getName());
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void Play(Clip clip, long time) throws InterruptedException {
+    public static void Play(long time) throws InterruptedException {
         clip.setMicrosecondPosition(0);
         clip.start();
+
+        // waiting for specific time
         Thread.sleep(time);
+
         clip.stop();
     }
 

@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-import static org.example.MusicPlayer.LoadSong;
+import static org.example.MusicPlayer.*;
 
 public class Songless extends JFrame {
     private JPanel frame;
@@ -39,14 +39,14 @@ public class Songless extends JFrame {
     }
 
     public Songless() throws UnsupportedAudioFileException, IOException, LineUnavailableException { initComponents();
+        // loading all audio files from songs folder
         File[] files =  new File("songs").listFiles();
-
         File file = new File("songs/", files[index].getName());
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
 
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
+        // loading first audio file in folder
+        LoadAudio(String.valueOf(file));
 
+        // setting name of that file to songLabel
         songLabel.setText(file.getName());
 
         ActionListener listener = new ActionListener() {
@@ -61,9 +61,8 @@ public class Songless extends JFrame {
                         else index--;
 
                         File file = new File("songs/", files[index].getName());
-                        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioStream);
+
+                        LoadAudio(String.valueOf(file));
 
                         songLabel.setText(file.getName());
                     }
@@ -73,28 +72,21 @@ public class Songless extends JFrame {
                         else index++;
 
                         File file = new File("songs/", files[index].getName());
-                        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-                        Clip clip = AudioSystem.getClip();
-                        clip.open(audioStream);
+
+                        LoadAudio(String.valueOf(file));
 
                         songLabel.setText(file.getName());
                     }
 
-                    if (source.equals(button05s)) MusicPlayer.Play(clip, 500);
-                    if (source.equals(button1s)) MusicPlayer.Play(clip, 1000);
-                    if (source.equals(button2s)) MusicPlayer.Play(clip, 2000);
-                    if (source.equals(button4s)) MusicPlayer.Play(clip, 4000);
-                    if (source.equals(button8s)) MusicPlayer.Play(clip, 8000);
-                    if (source.equals(button15s)) MusicPlayer.Play(clip, 15000);
-                    if (source.equals(button30s)) MusicPlayer.Play(clip, 30000);
+                    if (source.equals(button05s)) MusicPlayer.Play(500);
+                    if (source.equals(button1s)) MusicPlayer.Play(1000);
+                    if (source.equals(button2s)) MusicPlayer.Play(2000);
+                    if (source.equals(button4s)) MusicPlayer.Play(4000);
+                    if (source.equals(button8s)) MusicPlayer.Play(8000);
+                    if (source.equals(button15s)) MusicPlayer.Play(15000);
+                    if (source.equals(button30s)) MusicPlayer.Play(30000);
                 }
                 catch(InterruptedException e){
-                    throw new RuntimeException(e);
-                } catch (UnsupportedAudioFileException e) {
-                    throw new RuntimeException(e);
-                } catch (LineUnavailableException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }

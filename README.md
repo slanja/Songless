@@ -38,3 +38,8 @@ Run the project:
 ```shell
 npm start
 ```
+## Contributors
+
+<a href="https://github.com/slanja/songless/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=slanja/songless" />
+</a>

@@ -30,5 +30,4 @@ public class MusicPlayer {
 
         clip.stop();
     }
-
 }

@@ -21,6 +21,7 @@ public class Songless extends JFrame {
     private JButton prevButton;
     private JButton button1s;
     private JButton button15s;
+    private JButton playButton;
 
     private Clip clip;
 
@@ -29,6 +30,7 @@ public class Songless extends JFrame {
     File[] files;
 
     MusicPlayer musicPlayer = new MusicPlayer();
+    Styles style = new Styles();
 
     private void initComponents() {
         setContentPane(frame);
@@ -48,6 +50,22 @@ public class Songless extends JFrame {
 
         // setting name of that file to songLabel
         songLabel.setText(file.getName());
+
+        // styles
+        style.ButtonStyle(button05s);
+        style.ButtonStyle(button1s);
+        style.ButtonStyle(button2s);
+        style.ButtonStyle(button4s);
+        style.ButtonStyle(button8s);
+        style.ButtonStyle(button15s);
+        style.ButtonStyle(button30s);
+        style.ButtonStyle(playButton);
+
+        style.ButtonNoStyle(prevButton);
+        style.ButtonNoStyle(nextButton);
+
+        style.TextStyle(songLabel);
+
 
         ActionListener listener = new ActionListener() {
 
@@ -85,6 +103,7 @@ public class Songless extends JFrame {
                     if (source.equals(button8s)) MusicPlayer.Play(8000);
                     if (source.equals(button15s)) MusicPlayer.Play(15000);
                     if (source.equals(button30s)) MusicPlayer.Play(30000);
+                    if (source.equals(playButton)) MusicPlayer.Play(file.length());
                 }
                 catch(InterruptedException e){
                     throw new RuntimeException(e);
@@ -101,5 +120,6 @@ public class Songless extends JFrame {
         button8s.addActionListener(listener);
         button15s.addActionListener(listener);
         button30s.addActionListener(listener);
+        playButton.addActionListener(listener);
     }
 }

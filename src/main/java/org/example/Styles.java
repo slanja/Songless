@@ -12,6 +12,7 @@ public class Styles {
     }
 
     public void ButtonNoStyle(JButton button) {
+        button.setFont(new Font("Segoe UI", Font.BOLD, 18));
         button.setOpaque(false);
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);

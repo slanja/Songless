@@ -30,4 +30,16 @@ public class MusicPlayer {
 
         clip.stop();
     }
+
+    public static void Play() throws InterruptedException {
+        clip.setMicrosecondPosition(0);
+        clip.start();
+
+        // wait until song ends
+        while (clip.isRunning()) {
+            Thread.sleep(10);
+        }
+
+        clip.stop();
+    }
 }

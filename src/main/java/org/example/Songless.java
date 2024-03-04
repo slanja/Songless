@@ -2,6 +2,7 @@ package org.example;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -36,6 +37,7 @@ public class Songless extends JFrame {
         setContentPane(frame);
         setTitle("Songless");
         setSize(700, 300);
+        setMinimumSize(new Dimension(700, 300));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -103,7 +105,7 @@ public class Songless extends JFrame {
                     if (source.equals(button8s)) MusicPlayer.Play(8000);
                     if (source.equals(button15s)) MusicPlayer.Play(15000);
                     if (source.equals(button30s)) MusicPlayer.Play(30000);
-                    if (source.equals(playButton)) MusicPlayer.Play(file.length());
+                    if (source.equals(playButton)) MusicPlayer.Play();
                 }
                 catch(InterruptedException e){
                     throw new RuntimeException(e);
